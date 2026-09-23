@@ -21,14 +21,14 @@ public class Cliente {
     private String email;
 
     @Column(nullable = false)
-    private int telefone;
+    private String telefone;
 
 
     // Constructor
     public Cliente() {
     }
 
-    public Cliente(String nome, String email, int telefone) {
+    public Cliente(String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -49,17 +49,17 @@ public class Cliente {
         return email;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
     // Setters
-    
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
