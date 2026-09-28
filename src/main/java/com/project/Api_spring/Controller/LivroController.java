@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-RequestMapping("/livros")
+@RequestMapping("/livro")
 public class LivroController{
 
     @Autowired
@@ -23,23 +23,23 @@ public class LivroController{
 
     @GetMapping("/{id}")
     public ResponseEntity<Livro> buscarPorId(@PathVariable long id ){
-        return ResponseEntity.ok(livroService.buscarPorId(id));
+        return ResponseEntity.ok(LivroService.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Livro> criar(@resquestBody Livro livro){
-        Livro novoLivro = livroService.salvar(livro);
+    public ResponseEntity<Livro> criar(@RequestBody Livro livro){
+        Livro novoLivro = LivroService.salvar(livro);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoLivro);
     }
    
-    @putMapping("/{id}")
-    public ResponseEntity<Livro> atualizar(@PathVariable long id , @resquestBody Livro){
-        return ResponseEntity.ok(livroService.atualizar(id , livro));
+    @PutMapping("/{id}")
+    public ResponseEntity<Livro> atualizar(@PathVariable long id , @RequestBody Livro livro){
+        return ResponseEntity.ok(LivroService.atualizar(id , livro));
     }
 
-    @deleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar (@PathVariable long id){
-        livroService.deletar(id);
+        LivroService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 }

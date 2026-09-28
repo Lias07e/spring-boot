@@ -21,7 +21,7 @@ public class Atendente {
     private String email;
 
     @Column(nullable = false)
-    private  senha;
+    private String senha;
 
     public Atendente() {
     }
@@ -29,7 +29,7 @@ public class Atendente {
     public Atendente(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
-        this.senhaHash = senha;
+        this.senha = senha;
     }
 
     //getters
@@ -66,7 +66,7 @@ public class Atendente {
       }
 
       public String setSenha(String senha) {
-        this.senhaHash = senha;
+        this.senha = senha;
         return senha;
       }
 }
