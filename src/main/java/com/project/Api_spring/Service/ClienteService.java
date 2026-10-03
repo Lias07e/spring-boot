@@ -30,6 +30,7 @@ public class ClienteService {
         Cliente cliente = buscarPorId(id);
         cliente.setEmail(clienteAtualizado.getEmail());
         cliente.setTelefone(clienteAtualizado.getTelefone());
+        cliente.setPassword(clienteAtualizado.getPassword());
         return clienteRepository.save(cliente);
     }
 

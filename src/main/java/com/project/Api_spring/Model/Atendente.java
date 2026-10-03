@@ -6,7 +6,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter 
+@Setter 
 @Entity
 @Table(name = "Atendentes")
 public class Atendente {
@@ -21,52 +26,14 @@ public class Atendente {
     private String email;
 
     @Column(nullable = false)
-    private String senha;
+    private String password;
 
     public Atendente() {
     }
 
-    public Atendente(String nome, String email, String senha) {
+    public Atendente(String nome, String email, String password) {
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
     }
-
-    //getters
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-     public String getSenha() {
-        return senha;
-    }
-
-    //setters
-    
-     public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-      public String setEmail(String email) {
-        this.email = email;
-        return email;
-      }
-
-      public String setSenha(String senha) {
-        this.senha = senha;
-        return senha;
-      }
 }

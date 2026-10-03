@@ -6,7 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter 
+@Setter
 @Entity
 @Table(name = "clientes")
 public class Cliente {
@@ -23,44 +27,21 @@ public class Cliente {
     @Column(nullable = false)
     private String telefone;
 
+    @Column(nullable = false)
+    private String password;
+
 
     // Constructor
     public Cliente() {
     }
 
-    public Cliente(String nome, String email, String telefone) {
+    public Cliente(String nome, String email, String telefone, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.password = senha;
+    }
+
     
-    }
-
-    // Getters 
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    // Setters
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 
 }

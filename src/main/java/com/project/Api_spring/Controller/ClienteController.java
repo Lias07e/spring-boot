@@ -1,7 +1,7 @@
 package com.project.Api_spring.Controller;
 
-import com.project.Api_spring.Model.Atendente;
-import com.project.Api_spring.Service.AtendenteService;
+import com.project.Api_spring.Model.Cliente;
+import com.project.Api_spring.Service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,32 +14,32 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    private AtendenteService atendenteService;
+    private ClienteService clienteService;
 
     @GetMapping
-    public List<Atendente> listarTodos() {
-        return atendenteService.listarTodos();
+    public List<Cliente> listarTodos() {
+        return clienteService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Atendente> buscarPorId(@PathVariable long id) {
-        return ResponseEntity.ok(atendenteService.buscarPorId(id));
+    public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(clienteService.buscarPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Atendente> criar(@RequestBody Atendente atendente) {
-        Atendente novoAtendente = atendenteService.salvar(atendente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoAtendente);
+    public ResponseEntity<Cliente> criar(@RequestBody Cliente cliente) {
+        Cliente novoCliente = clienteService.salvar(cliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoCliente);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Atendente> atualizar(@PathVariable long id, @RequestBody Atendente atendente) {
-        return ResponseEntity.ok(atendenteService.atualizar(id, atendente));
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
+        return ResponseEntity.ok(clienteService.atualizar(id, cliente));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable long id) {
-        atendenteService.deletar(id);
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        clienteService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 }

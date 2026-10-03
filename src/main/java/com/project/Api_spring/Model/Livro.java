@@ -8,8 +8,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 
+@Setter
+@Getter
 @Entity
 @Table(name = "livros")
 public class Livro {
@@ -45,53 +49,4 @@ public class Livro {
         this.genero = genero;
     }
 
-    // Getters
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public String getEditora() {
-        return editora;
-    }
-
-    public int getAnoPublicacao() {
-        return anoPublicacao;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    // Setters
-
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public void setEditora(String editora) {
-        this.editora = editora;
-    }
-
-    public void setAnoPublicacao(int anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
 }
-

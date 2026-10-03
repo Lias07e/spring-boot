@@ -30,7 +30,7 @@ public class AtendenteService {
         Atendente atendente = buscarPorId(id);
         atendente.setNome(atendenteAtualizado.getNome());
         atendente.setEmail(atendenteAtualizado.getEmail());
-        atendente.setSenha(atendenteAtualizado.getSenha());
+        atendente.setPassword(atendenteAtualizado.getPassword());
         return atendenteRepository.save(atendente);
     }
 
